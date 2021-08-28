@@ -1,0 +1,46 @@
+syntax = "proto3";
+package assignment;
+option go_package = "./;pb";
+import "google/protobuf/timestamp.proto";
+
+service CustomerService{
+    rpc CreateCustomer (Customer) returns (Customer);
+    rpc UpdateCustomer (Customer) returns (Customer);
+    rpc ChangePassword (ChangePasswordRequest) returns (Customer);
+    rpc FindCustomer (FindCustomerRequest) returns (Customer);
+    rpc BookingHistory (BookingHistoryRequest) returns (BookingHistoryResponse);
+}
+
+message Customer{
+    string customer_name = 1;
+	string address = 2;
+	string phone = 3; 
+	string license_id = 4;
+	bool active = 5;
+	string id = 6;
+    string email = 7;
+    string password = 8;
+}
+
+
+message FindCustomerRequest{
+    string id = 1;
+}
+
+message ChangePasswordRequest{
+    string id = 1;
+    string password = 2;
+}
+
+message BookingHistoryRequest{
+    string id = 1;
+}
+
+message BookingHistoryResponse{
+    repeated string id = 1;
+    string customer_id = 2;
+    repeated string flight_id = 3;
+    repeated string code = 4;
+    repeated string status = 5;
+    repeated google.protobuf.Timestamp booked_date = 6;
+}
