@@ -1,0 +1,9 @@
+# customer_api
+### create_customer
+![Getting Started](./img/Capture.PNG)
+### find_customer
+![Getting Started](./img/Find_customer.PNG)
+### update_customer
+![Getting Started](./img/Update_customer.PNG)
+### changepassword
+![Getting Started](./img/ChangePassword.PNG)

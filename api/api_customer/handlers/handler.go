@@ -77,6 +77,7 @@ func (ch *customerHandler) CreatCustomer(c *gin.Context) {
 		Address:    pResponse.Address,
 		Email:      pResponse.Email,
 		ID:         pResponse.Id,
+		Active:     pResponse.Active,
 	}
 
 	//json to response http
@@ -187,6 +188,7 @@ func (ch *customerHandler) FindCustomer(c *gin.Context) {
 		License_id: pResponse.LicenseId,
 		Address:    pResponse.Address,
 		Email:      pResponse.Email,
+		Active:     pResponse.Active,
 	}
 	c.JSON(http.StatusOK, gin.H{
 		"status":  http.StatusText(http.StatusOK),
@@ -230,9 +232,10 @@ func (ch *customerHandler) ChangePassword(c *gin.Context) {
 
 	c.JSON(http.StatusOK, gin.H{
 		"status":  http.StatusText(http.StatusOK),
-		"payload": "Change password success",
+		"payload": "Thay đổi password thành công",
 	})
 }
+
 func (ch *customerHandler) BookingHistory(c *gin.Context) {
 	req := requests.FindCustomerRequest{}
 
